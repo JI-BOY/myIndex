@@ -1,0 +1,17 @@
+$main-color: #2c3e50;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+    background-image: url("@/assets/imgs/bg.webp");
+
+}
+
+@font-face {
+    font-family: "LED";
+    src: url("~@/assets/font/UnidreamLED.ttf");
+}
