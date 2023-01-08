@@ -6,7 +6,8 @@
         <OneWord></OneWord>
         <div class="bot">
           <div class="icons">
-            <a href="#" @mouseenter="bgColor.qq = false" @mouseleave="bgColor.qq = true">
+            <a href="tencent://message/?uin=1247386221&Site=&Menu=yes" @mouseenter="bgColor.qq = false"
+              @mouseleave="bgColor.qq = true">
               <tencent-qq v-if="bgColor.qq" theme="outline" size="25" fill="#333" />
               <tencent-qq v-else theme="outline" size="25" fill="#40ad95" />
             </a>
@@ -18,18 +19,19 @@
               <telegram v-if="bgColor.telegram" theme="outline" size="25" fill="#333" />
               <telegram v-else theme="outline" size="25" fill="#40ad95" />
             </a>
-            <a @mouseenter="bgColor.github = false" @mouseleave="bgColor.github = true">
+            <a href="https://github.com/JI-BOY" @mouseenter="bgColor.github = false"
+              @mouseleave="bgColor.github = true">
               <github v-if="bgColor.github" theme="outline" size="25" fill="#333" />
               <github v-else theme="outline" size="25" fill="#40ad95" />
             </a>
 
           </div>
           <div class="info">
-            <p>©2020 - 2023 By 暮雨</p>
+            <p>©2020 - 2023 By 牧雨</p>
             <p>©豫ICP备2022020894号-1</p>
           </div>
           <div class="down">
-            <drop-down-list theme="outline" size="48" fill="#333" />
+            <drop-down-list theme="outline" size="30" fill="#333" />
           </div>
         </div>
       </div>
@@ -89,6 +91,10 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
 
+    @media screen and (max-width: 750px) {
+      display: block;
+    }
+
     .myInfo {
       display: flex;
       flex-direction: column;
@@ -118,11 +124,12 @@ onMounted(() => {
 
         .down {
           border-radius: 50%;
-          width: 48px;
-          height: 48px;
-          padding: 5px;
-          border: 5px solid #333;
+          width: 30px;
+          height: 30px;
+          padding: 3px;
+          border: 3px solid #333;
           display: inline-block;
+          margin-top: 15px;
 
           @media screen and (min-width: 750px) {
             display: none;
@@ -142,9 +149,7 @@ onMounted(() => {
       justify-content: center;
       flex-direction: column;
 
-      @media screen and (max-width: 750px) {
-        display: none;
-      }
+
 
       .boark {
         height: 200px;
@@ -165,17 +170,12 @@ onMounted(() => {
           height: 100px;
           box-sizing: border-box;
 
-
-
+          .test {
+            font-size: 99px;
+          }
         }
 
-        .test {
-          text-align: center;
-        }
       }
-
-
-
     }
   }
 }

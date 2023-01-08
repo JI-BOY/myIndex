@@ -6,12 +6,85 @@ $main-color: #2c3e50;
 }
 
 html {
-    overflow: hidden;
     background-image: url("@/assets/imgs/bg.webp");
-
+    overflow-y: overlay;
 }
 
 @font-face {
     font-family: "LED";
     src: url("~@/assets/font/UnidreamLED.ttf");
+}
+
+.dialogBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .4);
+
+    .dialogBoxContent {
+        width: 500px;
+        height: 350px;
+        border: 2px solid #e9e9e9;
+        border-radius: 2px;
+        background-color: #fff;
+
+        @media screen and (max-width: 750px) {
+            width: 300px;
+            height: 200px;
+        }
+
+        .headhead {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            border-bottom: 1px solid #e9e9e9;
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                font-size: 24px;
+            }
+        }
+
+        .bodybody {
+            width: 100%;
+            height: calc(100% - 120px);
+        }
+
+        .footfoot {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            box-sizing: border-box;
+            border-top: 1px solid #e9e9e9;
+            padding: 0 20px;
+
+            .el-button {
+                margin-left: 12px;
+            }
+        }
+    }
+}
+
+.isShowMask {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.animation-enter,
+.animation-leave-to {
+    opacity: 0;
+}
+
+.animation-enter-active,
+.animation-leave-active {
+    transition: opacity 0.3s;
 }

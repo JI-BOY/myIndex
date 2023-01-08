@@ -5,31 +5,30 @@
       {{ porps.msg }}
     </div>
     <Teleport to="body">
-      <div class="pb" v-if="show" @click.self="show = false">
-        <div class="popups">
-          <div class="header">
-            <slot name="header">
-              <h2>tips</h2>
-            </slot>
-            <div class="close">
-              <close @click="show = false" theme="outline" size="25" fill="#333" />
+      <transition name="animation">
+        <div class="dialogBox isShowMask" v-if="show" @click.self="show = false">
+          <div class="dialogBoxContent">
+            <div class="headhead">
+              <slot name="header">
+                <span>{{ porps.title || 'Tips' }}</span>
+              </slot>
+              <close @click="show = false" theme="outline" size="20" fill="#333" strokeLinecap="butt" />
+            </div>
+            <div class="bodybody">
+              <slot></slot>
             </div>
           </div>
-          <slot></slot>
         </div>
-      </div>
-
+      </transition>
     </Teleport>
-
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { Close } from '@icon-park/vue-next';
-const porps = defineProps(['icon', 'msg', 'iconSize'])
+const porps = defineProps(['icon', 'msg', 'iconSize', 'title'])
 const show = ref(false)
-
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +53,7 @@ const show = ref(false)
 
   .popups {
     position: absolute;
-    z-index: 999;
+
     width: 600px;
     height: 400px;
     background-color: #fff;
